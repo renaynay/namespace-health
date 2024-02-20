@@ -8,6 +8,7 @@ import (
 
 	"github.com/celestiaorg/celestia-node/api/rpc/client"
 
+	"github.com/renaynay/namespace-health/feeder"
 	"github.com/renaynay/namespace-health/reader"
 	"github.com/renaynay/namespace-health/server"
 )
@@ -52,9 +53,10 @@ func main() {
 
 	fmt.Println("node info", "info:   ", info.Type)
 
-	r := reader.NewReader(node, namespaceID.ToNMT())
+	r := reader.New(node, namespaceID.ToNMT())
+	f := feeder.New(node, namespaceID.ToNMT())
 
-	serv := server.New(r)
+	serv := server.New(r, f)
 	go serv.Start(ctx)
 
 	r.Read(ctx)
