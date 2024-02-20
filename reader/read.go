@@ -31,7 +31,7 @@ type Reader struct {
 	isLastAverageHealthier atomic.Value
 }
 
-func NewReader(node *client.Client, nID namespace.ID) *Reader {
+func New(node *client.Client, nID namespace.ID) *Reader {
 	r := &Reader{
 		node: node,
 		nID:  nID,
