@@ -1,0 +1,13 @@
+#health-bar-container {
+    width: 200px;
+    height: 20px;
+    border: 1px solid #000;
+    margin: 20px;
+}
+
+#health-bar {
+    height: 100%;
+    width: 0%; /* Initial state */
+    background-color: green;
+    transition: width 2s ease; /* Smooth transition for health changes */
+}
